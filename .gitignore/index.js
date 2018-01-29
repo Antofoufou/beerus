@@ -15,9 +15,6 @@ bot.on("message", message => {
         message.channel.sendMessage("Voici les commandes bande d'enculés :\n :\n .help pour afficher les commandes");
         console.log("Commande Help demandée !");
     }
-});
-
-
 
     switch (args[0].toLowerCase()){
 
@@ -41,4 +38,4 @@ bot.on("message", message => {
             }
         }
         } 
-}
+}                  
