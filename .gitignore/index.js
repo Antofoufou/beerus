@@ -12,30 +12,34 @@ bot.login("NDA3NTc2MDgxOTIzNzAyNzk0.DVDg8g.KlsqxbXYV4OLBGG60ELlV9zDlms");
 
 bot.on("message", message => {
     if (message.content === prefix + "help"){
-        message.channel.sendMessage("Voici les commandes bande d'enculés :\n .help pour afficher les commandes");
+        message.channel.sendMessage("Voici les commandes bande d'enculés :\n :\n .help pour afficher les commandes");
         console.log("Commande Help demandée !");
     }
-});    
+});
+
+
 
     switch (args[0].toLowerCase()){
 
         case "kick":
 
-        if (!message.channel.permissionsFor(message.member).hasPermission("KICK_MEMBERS"))
+        if (!message.channel.permissionsFor(message.member).hasPermission("KICK_MEMBERS")){
             message.reply("Les pouvoirs du Dieu de la Destruction ne sont autorisés qu'aux Modérateur, chose que tu sembles loin d'être.")
         }else{
             var member = message.mentions.members.firsts();
             if(!member){
                 message.reply("Je ne trouve pas la personne à détruire ..");
             }else{
-                if(!member.kickable)
-                    message.reply("Mon pouvoir n'est pas assez rechargé pour ça.")
+                if(!member.kickable){
+                    message.reply("Mon pouvoir n'est pas assez rechargé pour ça.");
                 }else{
                     member.kick().then((member) => {
                     message.channel.send("${member.displayName} à été annihilé, adieu.");
-                }).catch() => {
-                    message.channel.send("Kick refusé")
-            }    
+                }).catch(() => {
+                    message.channel.send("Kick refusé");
+                })   
+            }
         }
-
-        break;
+        } 
+}           
+        break;        
