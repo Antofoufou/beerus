@@ -41,5 +41,4 @@ bot.on("message", message => {
             }
         }
         } 
-}           
-        break;        
+}
